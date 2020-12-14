@@ -31,18 +31,29 @@ function App() {
     }
   };
 
-  const deleteRestaurant = 
+  const deleteRestaurant = async (id) => {
+    try 
+    {let res = await axios.delete(`/api/restaurants/${id}`);
+    let newRestaurants = restaurants.filter((r) => r.id !== id);
+    setRestaurants(newRestaurants);
+  } catch (err) {
+    console.log(err);
+  }
+};
   
+
   return (
     <>
     <Container>
       <h1>Restaurant app</h1>
      <RestaurantList
       restaurants={restaurants}
+      deleteRestaurant={deleteRestaurant}
       />
       <h2>Add a Restaurant</h2>
       <RestaurantForm
      addRestaurant={addRestaurant} 
+     deleteRestaurant={deleteRestaurant}
     />
     </Container>
    </>

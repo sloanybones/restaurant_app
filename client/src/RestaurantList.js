@@ -5,10 +5,10 @@ const RestaurantList = (props) => {
   return(
 <ul>
 {props.restaurants.map((r) => 
-
 <Restaurant
 key={r.id}
 {...r}
+deleteRestaurant={props.deleteRestaurant}
 />
 
 )}
