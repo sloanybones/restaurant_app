@@ -9,7 +9,7 @@ restaurant= Restaurant.new(restaurant_params)
 if restaurant.save
   render json: restaurant
 else
-  render json {errors: restaurant.errors }, status: :unprocessable_entity
+  render json: { errors: restaurant.errors }, status: :unprocessable_entity
 end
 end
 
@@ -34,4 +34,4 @@ end
 
 
 
-end
+
