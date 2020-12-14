@@ -6,9 +6,11 @@ const RestaurantList = (props) => {
 <ul>
 {props.restaurants.map((r) => 
 <Restaurant
+deleteRestaurant={props.deleteRestaurant}
+updateRestaurant={props.updateRestaurant}
 key={r.id}
 {...r}
-deleteRestaurant={props.deleteRestaurant}
+
 />
 
 )}

@@ -41,6 +41,20 @@ function App() {
   }
 };
   
+const updateRestaurant = async (id) => {
+  try {
+    let res = await axios.put(`/api/restaurants/${id}`);
+    let newRestaurants = restaurants.map((r) =>
+      r.id === updateRestaurant.id ? updateRestaurant : r
+    );
+
+     
+    
+  setRestaurants(newRestaurants);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   return (
     <>
@@ -49,11 +63,12 @@ function App() {
      <RestaurantList
       restaurants={restaurants}
       deleteRestaurant={deleteRestaurant}
+      updateRestaurant={updateRestaurant}
       />
       <h2>Add a Restaurant</h2>
       <RestaurantForm
      addRestaurant={addRestaurant} 
-     deleteRestaurant={deleteRestaurant}
+     
     />
     </Container>
    </>
